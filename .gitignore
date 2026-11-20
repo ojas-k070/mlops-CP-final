@@ -1,40 +1,182 @@
-STATUS.md
+# ==============================================================================
+# Git Ignore - Energy Forecasting MLOps Project
+# ==============================================================================
 
-# python
+# ------------------------------------------------------------------------------
+# 1. Virtual Environments & Package Managers
+# ------------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+conda-meta/
+pip-wheel-metadata/
+wheels/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ------------------------------------------------------------------------------
+# 2. Environment Variables & Secrets (CRITICAL: Do NOT push to GitHub)
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+!.env.template
+.streamlit/secrets.toml
+secrets.toml
+*.pem
+*.key
+
+# ------------------------------------------------------------------------------
+# 3. Big Data Files & Datasets (Managed by DVC / Remote Storage)
+# ------------------------------------------------------------------------------
+# Raw and processed datasets
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/external/*
+!data/external/.gitkeep
+
+# Catch-all for large tabular and text data
+data/**/*.txt
+data/**/*.csv
+household_power_consumption.txt
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.arrow
+*.jsonl
+
+# ------------------------------------------------------------------------------
+# 4. Big Machine Learning Models & Checkpoints
+# ------------------------------------------------------------------------------
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.onnx
+models/*.pt
+models/*.pth
+models/*.bin
+models/*.weights
+models/*.safetensors
+*.pkl
+*.pickle
+*.joblib
+*.model
+*.pt
+*.pth
+*.onnx
+*.weights
+*.safetensors
+*.ckpt
+
+# ------------------------------------------------------------------------------
+# 5. MLOps, Experiment Tracking & DVC Cache
+# ------------------------------------------------------------------------------
+# MLflow local runs and artifacts
+mlruns/
+mlartifacts/
+
+# DVC internal cache and local configs
+.dvc/cache/
+.dvc/tmp/
+.dvc/*.local
+
+# Other experiment tracking & pipeline managers
+wandb/
+lightning_logs/
+runs/
+.prefect/
+
+# ------------------------------------------------------------------------------
+# 6. Python Bytecode & Runtime Artifacts
+# ------------------------------------------------------------------------------
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
+*.so
 *.pyd
-*.pyw
+*.pyo
 *.pyz
 
-venv/
-.venv/
-
-# Tooling caches
+# ------------------------------------------------------------------------------
+# 7. Testing, Coverage & Quality Caches
+# ------------------------------------------------------------------------------
+.pytest_cache/
 .ruff_cache/
 .mypy_cache/
-.pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
+.hypothesis/
+.tox/
+.nox/
 
-# mlops/
-# data/processed/
-# data/raw/
+# ------------------------------------------------------------------------------
+# 8. Jupyter Notebooks Checkpoints
+# ------------------------------------------------------------------------------
+.ipynb_checkpoints/
+*-checkpoint.ipynb
 
-# DVC-managed model/data artifacts
-models/*.pkl
-data/**/*.csv
-data/**/*.txt
+# ------------------------------------------------------------------------------
+# 9. Logs, Temp Files & Databases
+# ------------------------------------------------------------------------------
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
 
-data/raw/household_power_consumption.txt
-mlruns/
+# ------------------------------------------------------------------------------
+# 10. Large Archives & Compressed Files
+# ------------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+*.bz2
+*.xz
 
-# OS
+# ------------------------------------------------------------------------------
+# 11. Operating System Files
+# ------------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# Editor / local tooling
+# ------------------------------------------------------------------------------
+# 12. IDE & Local Tooling
+# ------------------------------------------------------------------------------
 .vscode/
-
-# Harness worktrees (created inside the project by start-task.sh)
+.idea/
+*.sublime-project
+*.sublime-workspace
 .worktrees/
+STATUS.md

@@ -4,7 +4,8 @@ An end-to-end MLOps pipeline for predicting household energy consumption using t
 This project is fully containerized and reproducible via Docker.
 
 
-> 🚀 Current setup: Local deployment via Docker on `0.0.0.0`.
+> 🚀 Current setup: Local deployment via Docker on `0.0.0.0`.  
+> 📖 **Reopening the project?** See [STARTUP.md](STARTUP.md) for startup commands and one-click launch scripts.
 
 ---
 
